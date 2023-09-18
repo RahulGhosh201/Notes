@@ -1,0 +1,415 @@
+OOPS model is supported in languages like JAva, C++, Python, C# , Javascript, PHP etc.
+
+Class is the blueprint or template, based on which objects can be created. We can say that objects are considered the instance of a Class, tai object k instance bole.
+Charactarestics holo what about the object.
+Behaviour holo how about the object.
+
+Real life example-
+Class-> any Car models like Audi A4, BMW I8 etc.
+Object-> a specific car of any model.
+Charactarestics-> What is the color of your car? What types of tires are used in the car? etc.
+Behavior-> How to start the car? How to change the gear of the car? etc.
+
+Charactarestics are also known as data, attributes or properties
+Behaviors are known as functions, methods, procedures
+
+
+What is OOPS?
+    It refers to Object-Oriented Programming. meaning eta defiined using objects. Objects holo real-world entities like class, that have some Charactarestics and behaviors.
+
+Need of OOPS-
+    1. without knowing the actual implementation, it helps the users to understand the software easily.
+    2. with OOPS the readability, understandibility, maintainability of the code increases.
+    3. using OOPS we can write and manage big softwares.
+
+What is program paradigm?
+    method of classification of programming based on their featuresis known as Programming paradigm.
+
+    1. Imperative Programming paradigm- it focuses on how to execute program logic.
+        i) Procedural programming language- it works step by step like in order fron top to bottom.
+        ii) OOP- it organizes programs as objects, that contain behavior and charactarestics.
+        iii) Parallel programming- it breaks the total programming into subtasks and complete them in the same time parallely.
+
+    2. Declarative Programming Paradigm- it focuses on how to execute programming logic.
+        i) Logical Programming Paradigm- it's based on formal logic, it refers to a set of sentences expressing facts and rules.
+        ii) Functional Programming Paradigm- here programs are constructed by applying and composing fuunctions.
+        iii) Database Programming Paradigm- It's used to manage data and information structured as fields, records and files.
+
+What is structured Programming?
+    ekta structure manily koyekta block nie create hoy and this blocks are made of like using if/then OR while/for and then this blocks are controlled via some flow . Like the control of the program remains in the if statement if condition satisfies then it goes to next block that's how structured programming works. Most of the paradigms include structured programming.
+
+Main features of OOPS->
+    Inheritance, Encapsulation, Polymorphism, Data Abstraction
+
+Advantages of using OOPS->
+    solve complex level of problems and those complex programs can e created, handled and maintained easily using OOP.
+    It promotes code reuse therby reducing redundancy. Also unnecessary data k hide kore eta data abstraction r help e.
+    it's based on bottom-up approach unlike the structural programming languages which uses top-down approach.
+
+Why is OOPS so popular?
+    it helps to write complex code easily and help them to handle, maintain the code easily. Also the four pillars of OOPs- Data Abstraction, Encapsulation, Polymorphism, Inheritance makes it easy for the programmers to solve complex scenarios.
+
+What is class?
+    Class is basically a template or blueprint for objects. Also one can create as many objects as they want based on a class.
+    For example, first a car's template is created that is the Class and multiple cars are created based on that template, here these cars are the objects.
+
+What is an object?
+    Object refers to the instance of the class, which contains the instances of members and behaviors defined in the class template. Basically it gets created based on the template(Class) and it contains charactarstics(datas, attributes) and behaviors(methods, functions).
+
+What is Encapsulation?
+    In simple words, variables and methods k capsule r modhye vore dilam seta kei encapsulation bolbo.
+    We can say that, Encapsulation is a process of binding data men=mbers and methods of a program together to do a specific job without revealing unnecessary details.
+    Encapsulation=Data Hiding + Data Binding
+
+What is Polymorphism?
+    "Poly" means "many" and "morphs" means "shapes". So polymorphism means many shapes. So we can say that by  this feature, we create a function and reuse it multiple times for multiple purpose in many shapes.
+    Like we create a function or method named Shapes and then we can use it for Circle, Square, Triangle, Rhombus.
+
+    1. Compile time polymorphism(Static or Early binding)/(method ovrloading)- in this case, we will see how multiple functions are created with the same name but the compiler decides which function to call easily at the compile time itself.
+            no of arguments can be different, datatype of the arguments can be differnt.
+            Code-
+            class CompileTimePolymorphism{
+                public int add(int x, int y){//method1
+                    return x+y;
+                }
+                public int add(int x, int y, int z){//method2
+                    return x+y+z;
+                }
+                public int add(double x, int y){//method3
+                    return (int)x+y;
+                }
+                public int add(int x, double y){//method4
+                    return x+(int)y;
+                }
+            } 
+
+            class Test{
+                public static void main(String[] args){
+                    CompileTimePolymorphism demo=new CompileTimePolymorphism();
+                    System.out.println(demo.add(1,2,3));//it will call method2
+                    System.out.println(demo.add(2,2.5));//it will call method4
+                    System.out.println(demo.add(2.5,2));//it will call method3
+                    System.out.println(demo.add(2,3));//it will call method1
+                }
+            }
+
+    2. Runtime Polymorphism(Dynamic or Late binding)/(method overriding)- It can't be decided by the compiler, therefore what shape or value has to be taken depends upon the execution, hence the name is runtime polymorphism.
+        class AnyVehicle{
+            public void move(){
+                System.out.println("Any vehicle should move");
+            }
+        }
+        class Bike extends AnyVehicle{//extends keyword is used exclusively for runtime polymorphism
+            public void move(){
+                System.out.println("Bike can move too");
+            }
+        }
+        class Test{
+            public static void main(String[] args){
+                AnyVehicle vehicle=new Bike();
+                vehicle.move();//“Bike can move too”
+                // In the above statement, as you can see, the object vehicle is of type AnyVehicle
+                // But the output of the below statement will be “Bike can move too!!”, 
+                // because the actual implementation of object ‘vehicle’ is decided during runtime vehicle.move();
+                vehicle = new AnyVehicle();
+                // Now, the output of the below statement will be “Any vehicle should move!!”, 
+                vehicle.move();//“Any vehicle should move”
+            }
+        }
+
+
+What is Inheritance?
+    It means receiving some quality or behavior from a parent to an offspring. In this mechanism an object or class(referred to as a child) is created using the defination of another object or class(Referred to as a parent). Parent class r charactarestics and behavior mane datas, attributes and methods sob inherit korbe child class.
+    It helps to faciliate code reuse.
+
+What is Abstraction?
+    It is the method of hiding unnecessary details from the users. Like in case of a car user , the user only need to know how to run a car not how the wirs are connected inside it.
+
+How much memory does a class occupy?
+    Classes does not occupy any memory, They are just a blueprint based on which objects are created. now when objects are created, they actually initialize the members and methods. Hence it consumes memory.
+
+Is it always necessary to create objects from calss?
+    jodi kono base class e non-static methods thake then object create kora necessary but base class e static method thakle then object na create korleo hoy tokhn directly class name use kore sei static method tike use kora jabe.
+    
+What is Constructor?
+    special method who contains the same name as the class name. It serves the special purpose of initializing the objects. Most of the time even if we don't write a constructor code , the compiler provides a default constructor.
+    MyClass *MyObjPtr=new MyClass();
+    it will create a object based on the class MyClass with the help of the constructor.
+
+
+Types of Constructor-
+1. Default Constructor- It does not takes any parameter.
+    class ABC{
+        int x;//member of class ABC
+        ABC(){//default constructor
+            x=0;
+        }
+    }
+    class Test{
+        public static void main(String[] args){
+            ABC a=new ABC();//we don't have to pass any parameter here
+        }
+    }
+
+2. Parameterized Constructor- it takes some parameters that's why it's known as Parameterized constructor.
+    class ABC{
+        int x;
+        ABC(int y){
+            x=y;
+        }
+    }
+    class Test{
+        public static void main(String[] args){
+            ABC a=new ABC(5);
+        }
+    }
+
+3. Copy Constructor- It's a member function that initializes an object using another object of the same class.
+    class Student{
+        private String name;//instance variable
+        private int age;//instance vaiable
+
+        //constructor to initialize the object
+        public Student(String name, int age){//local variable
+            this.name=name;//here the first name is the local variable
+            this.age=age;
+        }
+
+        //copy constructor
+        public Student(String otherStudent){
+            this.name=otherStudent.name;
+            this.age=otherStudent.age;
+        }
+
+        //getter methods
+        publc String getName(){
+            return name;
+        }
+
+        public int getAge(){
+            return age;
+        }
+    }
+
+    public class Main{
+        public static void main(String[] args){
+            //creating a student object using the constructor
+            Student s1=new Student("Rahul",24);
+            
+            //creating another student object using the copy constructor
+            Student s2=new Student(s1);
+
+            System.out.println("S1-> Name: "+s1.getName()+", Age: "+s1.getAge()) ;
+            System.out.println("S2-> Name: "+s2.getName()+", Age: "+s2.getAger());
+            //we will see that both the results will be same as s2 student object is created from the s1 object
+        }
+    }
+
+What is Destructor?
+    it deletes the created object. It is used to free up the resources and memory occupied by an object. 
+    delete MyObjPtr;
+    we don't have to create a destructor or write code for it, just write the previous line and it will automatically destroy that object.
+
+Structure vs Class->
+    1. Strucure is stored in the stack memory where as class is stored in the heap memory
+    2. data abstraction can't be achieved using structure.
+
+Explain inheritance with example?
+    Let me explain to you with a common example. Let's take three different vehicles - a car, truck, or bus. These three are entirely different from one another with their own specific characteristics and behavior.
+    But in all three, you will find some common elements, like steering wheel, accelerator, clutch, brakes, etc. Though these elements are used in different vehicles, still they have their own features which are common among all vehicles. 
+    This is achieved with inheritance. The car, the truck, and the bus have all inherited the features like steering wheel, accelerator, clutch, brakes, etc, and used them as their own. 
+    Due to this, they did not have to create these components from scratch, thereby facilitating code reuse.
+
+Limitations of Inheritance->
+    Inheritance takes more time as it needs to go through multiple classes. As the base class and the child class are very tightly coupld together then if one need to make any changes they might need to do nested changes.
+
+Types of Inheritance->
+1. Single inheritance- when a class inherits from only one super class. The relation between a parent class and a sub class.
+    code- 
+        import java.util.*;
+
+        // Parent class (superclass)
+        class Animal {
+            void eat() {
+                System.out.println("The animal is eating.");
+            }
+        }
+
+        // Child class (subclass) inheriting from Animal
+        class Dog extends Animal {
+            void bark() {
+                System.out.println("The dog is barking.");
+            }
+        }
+
+        public class singleInheritance {
+            public static void main(String[] args) {
+                // creating a object from the subclass
+                Dog d = new Dog();
+                d.bark();
+                d.eat();// eat() is at parent class whuch is inherited by the sub class here
+
+                // creating another object from the parent class
+                Animal a = d;
+                a.eat();
+            }
+        }
+
+2. Multiple Inheritance- when the sub class inherits from two or more parent classes. eta interface use kore kora hoy.
+    import java.util.*;
+
+//an interface always creates a method and that method gets implemented by using the keyword implements
+interface Phone {
+    void makeCall();
+}
+
+interface Computer {
+    void browseInternet();
+}
+
+class SmartPhone implements Phone, Computer {
+    public void makeCall() {
+        System.out.println("Calling someone");
+    }
+
+    public void browseInternet() {
+        System.out.println("Browsing internet");
+    }
+}
+
+public class multipleInheritance {
+    public static void main(String[] args) {
+        SmartPhone s = new SmartPhone();
+        s.makeCall();
+        s.browseInternet();
+
+        Computer c = s;// as we can see another object can be created from the interface
+        s.browseInternet();// this object contains all the method described in the class
+    }
+}
+
+
+3. Multilevel Inheritance- it occurs when a subclass inherits from a parent class and then that sub class becomes a parent class and it gets inherited by another sub class and that's how a chain of sub and parent class gets created.
+    import java.util.*;
+
+class GrandParent {
+    void wisdom() {
+        System.out.println("Offering wisdom");
+    }
+}
+
+class Parent extends GrandParent {
+    void work() {
+        System.out.println("Working for a living");
+    }
+}
+
+class Child extends Parent {
+    void play() {
+        System.out.println("Playing in the field");
+    }
+}
+
+public class multiLevelInheritance {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.wisdom();
+        c.work();
+        c.play();
+        // as we can see the object created using child class has inherited every method
+        // chain wise
+    }
+}
+
+
+
+4. Hierarchial Inheritance- it occurs when multiple sub classes inherits from a parent class.
+    
+//here we will see run-time polymorphism or method overriding
+import java.util.*;
+
+class Shape {
+    void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+class Rectangle extends Shape {
+    void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+public class hierarchialInheritance {
+    public static void main(String[] args) {
+        Shape s1 = new Rectangle();
+        s1.draw();// Drawing a rectangle
+
+        Shape s2 = new Circle();
+        s2.draw();// Drawing a circle
+
+        Shape s3 = new Shape();
+        s3.draw();// Drawing a shape
+    }
+}
+
+5. hybrid Inheritance- combination of all of them
+
+Interface-> special type os class that contains the method but the method defination is not their. Only the declaration of the method is available inside an interface and to define those declared methods we have to create a class using the implements keyword.
+    interface Phone{
+        void makeCall();
+    }
+
+    class SmartPhone implements{
+        void makeCall(){
+            System.out.println("Making a call");
+        }
+    }
+
+Abstract Class->    
+    in an abstract class, abstract keyword is used when a abstract class is built and inside that class we can declare some method but to declare it we have to use abstract with it. 
+    unlike interface inside an abstract class we can define some methods too. Aso here extends keyword is used in place of implements.
+
+    import java.util.*;
+
+abstract class Shape{
+    public abstract double calculateArea();
+
+    public void display(){
+        System.out.println("This is a shape");
+    }
+}
+
+class Circle extends Shape{
+    private double radius;
+    public Circle(double rad){
+        this.radius=rad;
+    }
+    public double calculateArea(){
+        return Math.PI*radius*radius;
+    }
+}
+
+public class abstractClass {
+    public static void main(String[] args) {
+        Shape s=new Circle(14);
+        s.calculateArea();
+    }
+}
+
+Difference b/w abstract and interface
+    1. interface only declare a method but in the abstract class a method can be described as well as being declared.
+    2. interface uses interface keyword to create the interface class and abstract class uses abstract keyword
+    3. interface gets implemented but abstract class gets extended.
+
+
+
+
+
+
