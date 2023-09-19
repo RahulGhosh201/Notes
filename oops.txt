@@ -256,160 +256,276 @@ Types of Inheritance->
         }
 
 2. Multiple Inheritance- when the sub class inherits from two or more parent classes. eta interface use kore kora hoy.
-    import java.util.*;
+            import java.util.*;
 
-//an interface always creates a method and that method gets implemented by using the keyword implements
-interface Phone {
-    void makeCall();
-}
+        //an interface always creates a method and that method gets implemented by using the keyword implements
+        interface Phone {
+            void makeCall();
+        }
 
-interface Computer {
-    void browseInternet();
-}
+        interface Computer {
+            void browseInternet();
+        }
 
-class SmartPhone implements Phone, Computer {
-    public void makeCall() {
-        System.out.println("Calling someone");
-    }
+        class SmartPhone implements Phone, Computer {
+            public void makeCall() {
+                System.out.println("Calling someone");
+            }
 
-    public void browseInternet() {
-        System.out.println("Browsing internet");
-    }
-}
+            public void browseInternet() {
+                System.out.println("Browsing internet");
+            }
+        }
 
-public class multipleInheritance {
-    public static void main(String[] args) {
-        SmartPhone s = new SmartPhone();
-        s.makeCall();
-        s.browseInternet();
+        public class multipleInheritance {
+            public static void main(String[] args) {
+                SmartPhone s = new SmartPhone();
+                s.makeCall();
+                s.browseInternet();
 
-        Computer c = s;// as we can see another object can be created from the interface
-        s.browseInternet();// this object contains all the method described in the class
-    }
-}
+                Computer c = s;// as we can see another object can be created from the interface
+                s.browseInternet();// this object contains all the method described in the class
+            }
+        }
 
 
 3. Multilevel Inheritance- it occurs when a subclass inherits from a parent class and then that sub class becomes a parent class and it gets inherited by another sub class and that's how a chain of sub and parent class gets created.
-    import java.util.*;
+            import java.util.*;
 
-class GrandParent {
-    void wisdom() {
-        System.out.println("Offering wisdom");
-    }
-}
+        class GrandParent {
+            void wisdom() {
+                System.out.println("Offering wisdom");
+            }
+        }
 
-class Parent extends GrandParent {
-    void work() {
-        System.out.println("Working for a living");
-    }
-}
+        class Parent extends GrandParent {
+            void work() {
+                System.out.println("Working for a living");
+            }
+        }
 
-class Child extends Parent {
-    void play() {
-        System.out.println("Playing in the field");
-    }
-}
+        class Child extends Parent {
+            void play() {
+                System.out.println("Playing in the field");
+            }
+        }
 
-public class multiLevelInheritance {
-    public static void main(String[] args) {
-        Child c = new Child();
-        c.wisdom();
-        c.work();
-        c.play();
-        // as we can see the object created using child class has inherited every method
-        // chain wise
-    }
-}
+        public class multiLevelInheritance {
+            public static void main(String[] args) {
+                Child c = new Child();
+                c.wisdom();
+                c.work();
+                c.play();
+                // as we can see the object created using child class has inherited every method
+                // chain wise
+            }
+        }
 
 
 
 4. Hierarchial Inheritance- it occurs when multiple sub classes inherits from a parent class.
     
 //here we will see run-time polymorphism or method overriding
-import java.util.*;
+        import java.util.*;
 
-class Shape {
-    void draw() {
-        System.out.println("Drawing a shape");
-    }
-}
+        class Shape {
+            void draw() {
+                System.out.println("Drawing a shape");
+            }
+        }
 
-class Circle extends Shape {
-    void draw() {
-        System.out.println("Drawing a circle");
-    }
-}
+        class Circle extends Shape {
+            void draw() {
+                System.out.println("Drawing a circle");
+            }
+        }
 
-class Rectangle extends Shape {
-    void draw() {
-        System.out.println("Drawing a rectangle");
-    }
-}
+        class Rectangle extends Shape {
+            void draw() {
+                System.out.println("Drawing a rectangle");
+            }
+        }
 
-public class hierarchialInheritance {
-    public static void main(String[] args) {
-        Shape s1 = new Rectangle();
-        s1.draw();// Drawing a rectangle
+        public class hierarchialInheritance {
+            public static void main(String[] args) {
+                Shape s1 = new Rectangle();
+                s1.draw();// Drawing a rectangle
 
-        Shape s2 = new Circle();
-        s2.draw();// Drawing a circle
+                Shape s2 = new Circle();
+                s2.draw();// Drawing a circle
 
-        Shape s3 = new Shape();
-        s3.draw();// Drawing a shape
-    }
-}
+                Shape s3 = new Shape();
+                s3.draw();// Drawing a shape
+            }
+        }
 
 5. hybrid Inheritance- combination of all of them
 
 Interface-> special type os class that contains the method but the method defination is not their. Only the declaration of the method is available inside an interface and to define those declared methods we have to create a class using the implements keyword.
-    interface Phone{
-        void makeCall();
-    }
+            interface Phone{
+                void makeCall();
+            }
 
-    class SmartPhone implements{
-        void makeCall(){
-            System.out.println("Making a call");
-        }
-    }
+            class SmartPhone implements Phone{
+                void makeCall(){
+                    System.out.println("Making a call");
+                }
+            }
 
 Abstract Class->    
     in an abstract class, abstract keyword is used when a abstract class is built and inside that class we can declare some method but to declare it we have to use abstract with it. 
     unlike interface inside an abstract class we can define some methods too. Aso here extends keyword is used in place of implements.
 
-    import java.util.*;
+            import java.util.*;
 
-abstract class Shape{
-    public abstract double calculateArea();
+        abstract class Shape{
+            public abstract double calculateArea();
 
-    public void display(){
-        System.out.println("This is a shape");
-    }
-}
+            public void display(){
+                System.out.println("This is a shape");
+            }
+        }
 
-class Circle extends Shape{
-    private double radius;
-    public Circle(double rad){
-        this.radius=rad;
-    }
-    public double calculateArea(){
-        return Math.PI*radius*radius;
-    }
-}
+        class Circle extends Shape{
+            private double radius;
+            public Circle(double rad){
+                this.radius=rad;
+            }
+            public double calculateArea(){
+                return Math.PI*radius*radius;
+            }
+        }
 
-public class abstractClass {
-    public static void main(String[] args) {
-        Shape s=new Circle(14);
-        s.calculateArea();
-    }
-}
+        public class abstractClass {
+            public static void main(String[] args) {
+                Shape s=new Circle(14);
+                s.calculateArea();
+            }
+        }
 
 Difference b/w abstract and interface
     1. interface only declare a method but in the abstract class a method can be described as well as being declared.
     2. interface uses interface keyword to create the interface class and abstract class uses abstract keyword
     3. interface gets implemented but abstract class gets extended.
 
+Access Specifiers or modifiers->
+    keywords used to specify the accessibility and visibility of class members(fields,mehods,inner classes)
+    1. Public- members declared as public are accessible from anywhere both within and outside the class.
+    2. Private- members declared as private are only accessible within the same class. they are not accessible from outside the class.even can't access from subclasses.
+    3. Protected- members declared as protected are accessible within the same class, as well as subclasses and also subclasses from different package. If they are not a subclass then outside the package it's not accessible there.
+    4. Default- when no access specifier is specified then default is applied and it has the accessibility of getting accessed from the same package.
+        public class MyClass {
+            public int publicField;
+            private int privateField;
+            protected int protectedField;
+            int defaultField; // package-private by default
+
+            public void publicMethod() {
+                // This method can be accessed from anywhere.
+            }
+
+            private void privateMethod() {
+                // This method is only accessible within this class.
+            }
+
+            protected void protectedMethod() {
+                // This method is accessible within this class and subclasses.
+            }
+
+            void defaultMethod() {
+                // This method is accessible within this package.
+            }
+        }
+
+        public class Subclass extends MyClass {
+            public void accessFieldsAndMethods() {
+                publicField = 1; // Accessible
+                privateField = 2; // Not accessible (private)
+                protectedField = 3; // Accessible (inherited)
+                defaultField = 4; // Accessible (inherited)
+
+                publicMethod(); // Accessible
+                privateMethod(); // Not accessible (private)
+                protectedMethod(); // Accessible (inherited)
+                defaultMethod(); // Accessible (inherited)
+            }
+        }
 
 
+public=package(same class + sub class + main function)+different package without any restriction
+protected=package(same class + sub class + main function)+different package r sei class takei kora jabe ja er subclass hbe
+default=package(same class + sub class + main function)
+private=only same class
 
 
+Exception->
+    undesired event ja runtime e program excution r time e program normal flow k disrupt kore dey.
+    an exception can be raised by the Java Virtual Machine implicitly or amra 'throw' keyword use kore explicitly exception throw korte pari.
+    jate prgram crash na kore tai amra exception handling kore thaki.
+    Exception gulo sob ek ekta java.long package class r objects.
 
+    1. Checked exception- 
+        i)IOException- kono file theke content read or write r time e hote pare if for any reason the file does not exist
+        ii)SQLException- databse operations related kono issue thakle
+    2. Unchecked exception- 
+        i)NullPointerException- kono object k access or manipulte korar try kor6i, but that object is null
+            String text = null;
+            System.out.println(text.length()); // This will result in a NullPointerException
+
+        ii)ArrayIndexOutOfBound Exception- array r size 5, but we are try access or manipulate the 6th index of the array
+
+
+Exception Handling->
+    try,catch,finally block use kore.
+    try block r modhye code r sei part ta thake ja exception throw korte pare
+    catch block r modhye exception ti k catch kore handle kora hoy. Mainly it specifies the exception type that it can catch.
+    finally block r modhye j code ta thake seta execute hobei whether exception occurs or not.
+        import java.io.IOException;
+        public class ExceptionHandlingExample {
+            public static void main(String[] args) {
+                try {
+                    int result = divide(10, 0);
+                    System.out.println("Result: " + result);
+                } catch (ArithmeticException e) {
+                    System.err.println("Exception caught: " + e.getMessage());
+                } finally {
+                    System.out.println("Finally block executed.");
+                }
+            }
+
+            public static int divide(int a, int b) {
+                if (b == 0) {
+                    throw new ArithmeticException("Cannot divide by zero.");
+                }
+                return a / b;
+            }
+        }         
+
+
+Garbage collection in OOPS world->
+    in OOPS, j class ta create kora hoy tara kono memory ney na but sei class theke j object create kora hoy tara memory absorb kore so jodi amra object create kortei thake but memory theke tader delete na kori tahole system crash kore jabe tai time moto garbage collect korte hoy.
+    eta java r automatic memory management process r modhye pore.
+    Ei process ta java r runtime e execute hoy.
+    Garbage collection memory leak theke prevent kore.
+
+
+Can we run a Java application without implementing the OOPs concept?
+    No. Java applications are based on Object-oriented programming models or OOPs concept, and hence they cannot be implemented without it.
+    However, on the other hand, C++ can be implemented without OOPs, as it also supports the C-like structural programming model.
+
+
+static keyword->
+    When a member is declared as static, it means there is only one copy of that member shared among all instances of the class. mane j field or method r age static keyword bosano hbe sei member ta ke ar oi object r kothao banano jbe na notun kre mane oi member ta r onlu ektai copy thakbe.
+    mane most of the time amra ekta class create kori and then sei class theke numbers of instances(objects) create kori and chai sei object gulo te common kono fields thakuk seta korte amra oi class tate sei field r sathe static keyword use kori.
+    As a constant o use kora hoy like-
+        class Constants {
+            static final int MAX_VALUE = 100;
+        }
+
+final keyword->
+    In Java, the final keyword is used to indicate that a variable, method, or class should not be further modified or extended once it has been declared as final. 
+    soja kothay constant declare korte final keyword use kora hoy.
+    When applied to a class, the final keyword indicates that the class cannot be extended by other classes. In other words, it cannot be used as a superclass for inheritance.
+    Final classes are often used to create immutable classes or to protect a class's implementation details from modification through inheritance.
+    When applied to method parameters, the final keyword indicates that the argument's value cannot be changed within the method.
+    
