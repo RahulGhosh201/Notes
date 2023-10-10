@@ -1,0 +1,369 @@
+difference for oops in cpp and java->
+
+i)syntax:
+in cpp-
+class Myclass{
+    public:
+}
+
+in java-
+class Myclass{
+
+}
+
+ii) Default access modifiers:
+in cpp-
+class Myclass{
+    //private members by default
+}
+
+in java-
+class Myclass{
+    //package-priveta members by default
+}
+
+iii) Access modifiers syntax:
+in cpp-
+class Myclass{
+    private:
+        int privateVar;
+    public:
+        int publicVar;
+}
+
+in java-
+class Myclass{
+    private int privateVar;
+    public int publicVar;
+}
+
+iv) Memory Management:
+in java because of garbage collector we don't have to worry about deallocating memory explicitly, here automatic garbage collection works
+Myclass obj=new Myclass();
+
+in cpp we have to deallocate memory using delete keyword explicitly
+Myclass* obj=new Myclass();
+delete obj;
+
+v) Multiple inheritance:
+cpp supports multiple inheritance, allowing a class to inherit from more than one class.Java does not support multiple ing+heritance that's why we use interface in java.
+in cpp-
+class Derived: public Base1, public Base2{
+    //here Derived class is inheriting from Base1 and Base2 classes
+} 
+
+in java-
+interface Interface1{
+
+}
+
+interface Interface2{
+
+}
+
+class Myclass implements Inteface1, Interface2{
+
+}
+
+vi) Checked exceptions:
+like java , cpp does not have a concept of exception throwing or even handling.
+
+Basically the decision of chossing cpp or java depends on the
+requirements of a project.
+java is often used in enterprise level applications, web development, android app development due to its platfrom independence and automatic memory management.
+cpp is commonly  used in system programming, game development due to it's low level memory manipulation capabilities.
+
+
+Creating a new object->
+1. Dynamic memory allocation:
+    using new keyword we can create a new object by allocating dynamic memory.
+    Myclass obj= new Myclass();
+2. Static memory allocation:
+    Myclass obj(42,"Hello");
+    Myclass obj={42,"Hello"};
+
+Abstraction->
+    in cpp you can create an abstract class by defining atleast one pure virtual function within the class.
+    A pure vrtual function is a function declard in the base calss that has no implementation and it's meant to be overriden 
+    by derived class.
+    Abstract classes cannot be instantiated; they are meant to serve as base classes for other classes. 
+    Instead, you can create a derived class (DerivedClass in this case) that inherits from the abstract class
+    and provides an implementation for the pure virtual function. Once the pure virtual function is overridden 
+    in the derived class, you can create objects of the derived class and call the overridden function as well as any non-virtual functions inherited from the abstract class.
+
+#include <iostream>
+
+// Abstract class declaration
+class AbstractClass {
+public:
+    // Pure virtual function
+    virtual void pureVirtualFunction() = 0;
+
+    // Normal member function
+    void nonVirtualFunction() {
+        std::cout << "This is a non-virtual function in the abstract class." << std::endl;
+    }
+};
+
+// Derived class
+class DerivedClass : public AbstractClass {
+public:
+    // Override the pure virtual function
+    void pureVirtualFunction() override {
+        std::cout << "Pure virtual function overridden in the derived class." << std::endl;
+    }
+};
+
+int main() {
+    // AbstractClass obj; // Error! Cannot instantiate an abstract class
+    DerivedClass obj;
+    obj.pureVirtualFunction();
+    obj.nonVirtualFunction();
+
+    return 0;
+}
+
+
+Encapsulation->
+    It helps in hiding the internal implementation details of an object and protecting
+    it's state from external access.
+
+    #include <bits/stdc++.h>
+using namespace std;
+
+class Student
+{
+private:
+    string name;
+    int age;
+
+public:
+    // public getter and setter methods to access private members
+    void setName(string name)
+    {
+        name = name;
+    }
+
+    void setAge(int age)
+    {
+        age = age;
+    }
+
+    string getName()
+    {
+        return name;
+    }
+
+    int getAge()
+    {
+        return age;
+    }
+};
+As we can see in this example that the name and age are private members of the student class, so this members are encapsulated.
+as they are private members they can't be accessed from outside the class but
+if we create some public getter and setter method then we can access those private members from outside the class.
+
+
+
+In cpp there is no direct keyword for creating interfaces like in some other oops languages(e.g Java or C#). 
+However you can achieve the concept of an interface in cpp.
+
+Access Specifiers->
+in case of cpp there is no default access specifier if we just write int privateVar then it will follow the rules of private access specifier
+1. Private:
+    Members declared as private are only accessible within the class. They can't be 
+    accessed or modified directly from outside the class. Private members are hidden from the outside world.
+
+    class Myclass{
+        private:
+            int privateVar;
+        public:
+        //setPrivateVar which is a public method is used here to get the access for private member named privateVar as the private members can't be accessed from outside the class
+            void setPrivateVar(int val){
+                privateVar=val;
+            }
+    }
+
+2. Protected:
+    protected members can't be accessed from outside the class but it can be accessed from the derived class.
+    class BaseClass{
+        protected:
+            int protectedVar;
+        
+    };
+
+    class DerivedClass: public BaseClass{
+        public:
+            void setProtectedVar(int val){
+                protectedVar=val;// Allowed because it's protected and MyDerivedClass is derived from MyBaseClass
+            }
+    };
+
+3. Public:
+    public members can be accessed from anywhere of the same file and different file. It can be accessed from the outside the class too. 
+    class Myclass{
+        public:
+            int publicVar;
+    };
+
+    int main()
+    {
+        Myclass obj;
+        obj.publicVar=50;//as we can see public member here can be accessed from outside the class
+        return 0;
+    }
+
+
+Constructor->
+    These are special member functions of a class that are used fro initiating objects. Constructors are called
+    when an object is created and they ensure that object is initialized properly.
+
+    1. Default Constructor:
+        i) a constructor with no parameters is called a default constructor.
+        ii) in case of a default constructor, the compiler automatically 
+            generates a constructor for you.
+        iii) it initializes the members of the class with default values.
+
+        class MyClass {
+        public:
+            // Default constructor
+            MyClass() {
+                // Initialization code here
+            }
+        };
+
+    2. Parameterized Constructor:
+        i)it contains some parameter in it.
+        ii)the argument it recieves are the local variables which then gets assigned to initialize the local variables.
+
+        class Myclass{
+            public:
+                int var;
+                Myclass(int x){
+                    var=x;//here var is the local variable nad x is the instance variable
+                }
+        };
+
+    3. Copy constructor:
+        i) A copy constructor is used to create a new object as A
+            copy of an existing object of the same class.
+        ii) It is called when an object is passed by value, returned by value or 
+            explicitly when a new object is created as a copy of an existing object.
+
+        class Myclass{
+            public:
+                Myclass(const Myclass& other){//copy constructor
+                    //Initialize data members by copying values from 'other'
+                }
+        };
+
+    4. Copy assignment operator('='):
+        i)The copy assignment operator ('=') is used to copy 
+            the values of one object into another object of the same class.
+
+        class Myclass{
+            public:
+                Myclass& operator=(const Myclass& other){
+                    //copy values from 'other' to this object
+                    return *this;
+                }
+        };
+
+
+Destructor->
+    i)In cpp, a destructor is a special member function of a class that is used to clan up resources when
+        an object goes out of scope or is explicitly gets deleted. 
+    ii) It has the same name as the class preceded by a tlide ('~')
+    iii) Destructors do not take any parameters and are invoked 
+        automatically when an objct is destroyed.
+
+    class Myclass{
+        public:
+            //constructor
+            Myclass(){
+                cout<<"Counstructor called"<<<endl;
+            }
+
+            //destructor
+            ~Myclass(){
+                cout<<"Destructor called"<<endl;
+            }
+    };
+
+Polymorphism->
+    binding of functions means determinig which function to call. So in case of compile time polymorphism it's known as early binding and runtime polymorphism is known as late binding.
+    1. Compile-Time polymorphism(Static Bonding / Early binding):
+        Function overloading + operator overloading
+        i) Function overloading:
+            It allows multiple functions with the same name but consists of different number of parameters
+            or differ types of parameters or ddifferent return types to exist in the same scope.
+
+            class Myclass{
+                public:
+                    int print(int num){
+                        return num;
+                    }
+
+                    double print(double num){
+                        return num;
+                    }
+
+                    int print(int a, int b){
+                        return a+b;
+                    }
+            };
+
+
+        ii) Operator overloading:
+             It allows you to define custom behaviors for operators when used with
+             objects of user defined classes. 
+             For example, you can overload operators like +, -, *, /, == , !=, <, > etc. 
+
+            clas Complex{
+                private:
+                    double real;
+                    double imaginary;
+
+                public:
+                    //constructor
+                    Complex(double r, double i): real(r), imaginary(i){}
+                        //here we are overloading the + operator for complex number addition
+                    Complex operator+(const Complex& other) const {
+                        return Complex(real + other.real, imaginary + other.imaginary);
+                    }
+
+                    //Here we are overloading the << operator for easy output
+                    friend std::ostream& operator<<(strd::ostream& out, const Complex& complex){
+                        out<< complex.real <<" + "<<complex.imaginary<<"i";
+                        return out;
+                    }
+            };
+
+    2. Run-time polymophism(late/dynamic binding):
+        It occurs when the method to be invoked is determined at runtime.
+        In cpp, run-time polymorphism is achieved through the use of virtual functions and inheritence.
+
+        i) Virtual Functions:
+            These functions are functoins declared in a base class and redefined in derived classes. 
+
+            class Shape{
+                public:
+                    virtual void draw(){
+                        cout<<"Draw a shape"<<endl;
+                    }
+            };
+
+            class Circle : public Shape{
+                public:
+                    void draw() override{
+                        cout<<"Draw a circle"<<Endl;
+                    }
+            };
+
+            int main()
+            {
+                Shape* shape =new Circle();
+                shape->draw(); //calls Circle's draw() method due to virtual function
+                delete shape;
+                return 0;
+            }
