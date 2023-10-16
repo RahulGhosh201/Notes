@@ -1,0 +1,39 @@
+kono equation r modhye sob cheye impact j term ta felbe mane n r j value j value ta sob
+theke boro seta O() r vitore bosbe.
+Example- 1. For the equation x2.n2 + x.n +1.n^0
+As we can see here n^2 is th biggest term of n. so the complexity of this equation is O(n^2)
+
+    2. For equation a+b+c
+        Time complexity-> O(n^0)
+                          = O(1)
+                          = constant time
+
+    3. For example a.n^1 +b.n^0
+        The impact full term here is a.n^1
+        so the complexity is O(n)
+                            = linear time
+
+There are 2 types of definition for O.
+
+1. In terms of mathematical definition, O(n) is also O(n^2) is also O(n^3)
+2. In terms of indun=stry definition, big O is also known as order of, and it wants you to complete the program in the smallest time possible.
+
+For example,
+https://www.youtube.com/watch?v=vgSKOMsjLbc 23:57 e dekhte pabo
+j graph ta draw kora hye6e tate jokhn sharable file r size ta less than 1 GB
+ho66e we should prefer algo1 as it's complexity is O(n) and for this case it's taking lesser time.
+But if the size of the file is more than 1 GB then we should prefer algo2 as it's time complexity is O(1) and it's taking lesser time in this case.
+
+How much time taken to execute an algorithm is known as Time complexity.
+It grows with the size of the input.
+Note: https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/DSA_CompleteNotes.pdf
+https://www.youtube.com/watch?v=vgSKOMsjLbc 31:08 there is a chart for big- O complexity, which says
+O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n) < O(n!)
+
+
+Deefinition: A function is said to be O(g(n))vif there exist constant c and a constant
+n not(n0) such that 
+0 <= f(n) <= c.g(n) for all n>=n0
+where g(n)= 1 or n or logn or nlogn or n^2 etc.
+      n = size of the input
+      f(n) = time taken
