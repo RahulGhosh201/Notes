@@ -1,5 +1,5 @@
 What is DBMS?
-    Eta holo collection of programs ja user der database k CRUD( Create, Update, Update, Delete) korte dey.
+    Eta holo collection of programs ja user der database k CRUD( Create, Read, Update, Delete) korte dey.
 Amra dbms use kore thaki  
 i) to reduce data redundancy(data redundancy hoy jokhn same piece of data multiple places e exist kore ).
 ii) to reduce data inconsistency(data inconsistency hoy jokhn same data different format e multiple table e exist kore).
